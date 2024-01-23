@@ -4,13 +4,11 @@ import { MdKeyboardArrowRight } from "@react-icons/all-files/md/MdKeyboardArrowR
 import AddItemModal from './AddItemModal';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import { useProducts } from '../../Hooks/useProducts';
 
 /* eslint-disable react/prop-types */
 const Slider = ({ showPrevItems, showNextItems, canShowPrev, canShowNext }) => {
     const [showModal, setShowModal] = useState(false);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { addNewItem } = useProducts();
 
     const openModal = () => {
         setShowModal(true);
@@ -21,7 +19,7 @@ const Slider = ({ showPrevItems, showNextItems, canShowPrev, canShowNext }) => {
     };
 
     const onSubmit = async (data) => {
-        addNewItem(data);
+        console.log(data);
         Swal.fire({
             icon: "success",
             title: "Item Added",
