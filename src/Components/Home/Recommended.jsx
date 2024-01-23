@@ -45,9 +45,9 @@ const Recommended = ({ filterRecommendedData, title }) => {
                 <div
                     className="grid grid-cols-3 lg:grid-cols-5 gap-3"
                 >
-                    {filterRecommendedData.slice(startIndex, startIndex + (window.innerWidth >= 768 ? itemsPerPageDesktop : itemsPerPageMobile)).map((items) => (
-                        <ItemCard key={items?._id} items={items?.items} />
-                    ))}
+                    {filterRecommendedData.slice(startIndex, startIndex + (window.innerWidth >= 768 ? itemsPerPageDesktop : itemsPerPageMobile)).map((items) => {
+                        return <ItemCard key={items?._id} items={items} />
+                    })}
                 </div>
             </div>
         </>

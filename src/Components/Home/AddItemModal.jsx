@@ -1,9 +1,6 @@
 /* eslint-disable react/prop-types */
-import { v4 as uuidv4 } from 'uuid';
 
 const AddItemModal = ({ showModal, closeModal, register, handleSubmit, onSubmit, errors }) => {
-
-  const defaultId = uuidv4();
 
   return (
     <>
@@ -12,12 +9,6 @@ const AddItemModal = ({ showModal, closeModal, register, handleSubmit, onSubmit,
           <div className="bg-white w-5/6 lg:w-1/3 h-fit px-8 py-4 rounded-xl">
             <h2 className="text-2xl font-bold text-center border-b-2 border-black p-2 mb-6">Add More Items</h2>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-6'>
-              <input
-                type="hidden"
-                name="Id"
-                value={defaultId}
-                {...register("Id")}
-              />
               <div>
                 <h1 className="font-semibold text-lg mb-1">Item Name</h1>
                 <input

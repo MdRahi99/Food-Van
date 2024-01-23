@@ -1,7 +1,8 @@
-const ItemCard = (items) => {
+/* eslint-disable react/prop-types */
+const ItemCard = ({items}) => {
 
     const {ImageUrl ,Name} = items;
-
+    
     return (
         <>
             <div className="w-full">

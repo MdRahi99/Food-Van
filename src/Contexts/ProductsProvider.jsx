@@ -24,8 +24,21 @@ const ProductsProvider = ({ children }) => {
         fetchData();
     }, []);
 
-    const addNewItem = (newItem) => {
-        dispatch({ type: 'ADD_MORE_PRODUCT', payload: newItem });
+    const addNewItem = async (newItem) => {
+        try {
+            dispatch({ type: ActionTypes.FETCHING_START });
+
+            const response = await axios.post('http://localhost:5000/api/products', newItem);
+
+            dispatch({ type: ActionTypes.ADD_MORE_PRODUCT, payload: response.data });
+
+            console.log('Item added successfully:', response.data);
+
+        } catch (error) {
+            dispatch({ type: ActionTypes.FETCHING_ERROR });
+
+            console.error('Error adding item:', error.message);
+        }
     };
 
     const value = { state, addNewItem };
